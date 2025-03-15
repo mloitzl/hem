@@ -1,0 +1,21 @@
+	<!-- BEGIN main_block -->
+	<h1>
+	  {PROJECT_IMPORT_FORM_TITLE}
+	</h1>
+	<h2>{MESSAGES}</h2>
+	<table>
+	  <form action="{FORM_ACTION}" method="{FORM_METHOD}" enctype="multipart/form-data">
+	    <input type="hidden" name="MAX_FILE_SIZE" value="1000000000" />
+	    <tr><td colspan="2">{LABEL_MAX_UPLOAD_FILESIZE}: {VALUE_MAX_UPLOAD_FILESIZE}</td></tr>
+	    <tr><td colspan="2">{LABEL_DONOTUNZIP}</td></tr>
+	    <tr>
+	      <td class="label">{LABEL_ARCHIVE}:</td><td><input type="file" name="project_archive"  size="40" /></td>
+	    </tr>
+	    <tr>
+	      <td class="buttons" colspan="2"><input type="Submit" name="Submit" value="{UPLOAD_BUTTON}" /><input type="Reset" name="Reset" value="{BACK_BUTTON}" /></td>
+	    </tr>
+	    <input type="hidden" name="form_id" value="import_project" />
+	  </form>
+	</table>
+	<br />
+	<!-- END main_block -->

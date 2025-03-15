@@ -1,0 +1,88 @@
+	<!-- BEGIN main_block -->
+	<h1>
+	    {ADD_RATINGSCHEME_TITLE}
+	</h1>
+
+	<h2>{MESSAGES}</h2>
+	<form id="my_form" name="addRatingScheme" action="{FORM_ACTION}" method="{FORM_METHOD}">
+	  <table>
+	    <tr>
+	      <th colspan="2">
+		{LABEL_RATINGSCHEME_TITLE}:
+	      </th>
+	    </tr>
+	    <tr>
+	      <!-- BEGIN title_language_header_block -->
+	      <th>{LABEL_TITLE_LANGUAGE}</th>
+	      <!-- END title_language_header_block -->	      
+	    </tr>
+	    <tr>
+	      <!-- BEGIN title_language_block -->
+	      <td>
+		<input type="hidden" name="scheme[translation][trans_id]" value="{RATINGSCHEME_TITLE_ID}" />
+		<input type="text" name="scheme[translation][{TITLE_LANGUAGE_CODE}]" value="{RATINGSCHEME_TITLE}" />
+	      </td>
+	      <!-- END title_language_block -->
+	    </tr>
+	  </table>
+
+
+
+	  <table>
+	    <tr>
+	      <th>
+		{LABEL_ASSOCIATED_RATINGSCALES}
+	      </th>
+	      <th>
+	      </th>
+	    </tr>
+	    <tbody id="my_table">
+	      <!-- BEGIN associated_scale_row -->
+	      <tr id="row{SCALE_ID}"><td>{SCALE_TITLE}</td><td><a href="javascript:removeElement('{SCALE_ID}','my_table','my_form')"><img src="templates/icons/button_detach.png"></a></td></tr>
+	      <!-- END associated_scale_row -->
+	    </tbody>
+	  </table>
+	  <!-- BEGIN associated_scale_hidden_field -->
+	  <input type="hidden" id="{SCALE_ID}" name="scales[{SCALE_ID}]" value=""/>
+	  <!-- END associated_scale_hidden_field -->
+	  <table>
+	    <tr>
+	      <th>
+		{LABEL_AVAILABLE_RATINGSCALES}
+	      </th>
+	      <th>
+	      </th>
+	    </tr>
+	    <tbody id="my_table">
+	      <!-- BEGIN available_scale_row -->
+	      <tr>
+		<td><a href="javascript:addElement('{AVAILABLE_SCALE_ID}','{AVAILABLE_SCALE_TITLE}', 'my_table', 'my_form','templates/icons/button_detach.png', '1', 'scales');"><img src="templates/icons/button_attach.png"></a></td>
+		<td>{AVAILABLE_SCALE_TITLE}</td>
+	      </tr>
+	      <!-- END available_scale_row -->
+	    </tbody>
+	  </table>
+	  
+	  <table>
+	    <tr>
+	      <td class="label">
+		{LABEL_RESULT}:
+	      </td>
+	      <td>
+		<select name="scheme[schemeResultOperation]">
+		  <option value="sum" {RESULT_SUM_SELECTED}>{LABEL_SUM}</option>
+		  <option value="mult" {RESULT_MULT_SELECTED}>{LABEL_MULT}</option>
+		  <option value="av" {RESULT_AV_SELECTED}>{LABEL_AVERAGE}</option>
+		</select>
+	      </td>
+	    </tr>
+	    <tr><td class="buttons" colspan="2">
+		<input type="hidden" name="scheme[scheme_id]" value="{RATINGSCHEME_ID}" />
+		<input type="hidden" name="form_id" value="addRatingScheme" />
+		<input type="hidden" name="url" value="{RETURN_URL}" />
+		<input type="Submit" name="Submit" value="{LABEL_SUBMIT_BUTTON}" />
+		<input type="Reset" name="Reset" value="{LABEL_CANCEL_BUTTON}" />
+	    </td></tr>
+	  </table>
+	</form>
+	<!-- END main_block -->

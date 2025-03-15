@@ -1,0 +1,39 @@
+	<!-- BEGIN main_block -->
+	<h1>
+	    {REPORTS_OVERVIEW_TITLE}
+	</h1>
+	<h2>{MESSAGES}</h2>
+
+	<table>
+	  <tr>
+	    <th>{LABEL_PROJECT_TITLE}</th>
+	    <th>{LABEL_PREVIEW_REPORT}</th>
+	    <th>{LABEL_EXPORT_REPORT}</th>
+	    <th>{LABEL_DOWNLOAD_REPORT}</th>
+	  </tr>
+	<!-- BEGIN project_block -->
+	  <tr class="{BG_CLASS}">
+	    <td><a href="{DEFAULT_PREVIEW_URL}"
+		   onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{REPORT_DESCRIPTION}&lt;/pre&gt;', ''); return true;" 
+		   onmouseout="tooltipClose();">
+		{REPORT_TITLE}</a>
+	    </td> 
+            <td>
+	      <!-- BEGIN preview_language_block -->
+	      <a href='{PREVIEW_URL}'>{LABEL_PREVIEW_REPORT}</a>
+	      <!-- END preview_language_block -->
+	    </td>
+            <td>
+	      <!-- BEGIN export_language_block -->
+	      <a href='{EXPORT_URL}'>{LABEL_EXPORT_REPORT}</a>
+	      <!-- END export_language_block -->
+	    </td>
+            <td>
+	      <a href='{DOWNLOAD_ZIP_URL}' target="_blank">{LABEL_DOWNLOAD_ZIP}</a>
+	      <a href='{DOWNLOAD_TGZ_URL}' target="_blank">{LABEL_DOWNLOAD_TGZ}</a>
+	    </td>
+
+	  </tr>
+	<!-- END project_block -->
+	</table>
+	<!-- END main_block -->

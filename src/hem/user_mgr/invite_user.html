@@ -1,0 +1,31 @@
+	<script type="text/javascript" language="Javascript">
+	  <!--	    
+
+	    function reloadParentWindow()
+		    {
+		    if(top.opener&&!top.opener.closed) top.opener.location.reload(true);
+		    
+		    }
+	    -->
+	</script>
+	<!-- BEGIN main_block -->
+	<h1>
+	    {INVITE_USER_TITLE}
+	</h1>
+	<h2>
+	    {MESSAGES}
+	</h2>
+
+	<form name="{FORM_NAME}" method="{FORM_METHOD}" action="{FORM_ACTION}" onSubmit="reloadParentWindow();">
+	<!-- BEGIN input_text_block -->
+	{LABEL_TEXT_BLOCK}:<input type="text" name="{INPUT_NAME}" value="{INPUT_VALUE}"><br/>
+	<!-- END input_text_block -->
+	<!-- BEGIN input_hidden_block -->
+	<input type="hidden" name="{INPUT_NAME}" value="{INPUT_VALUE}">
+	<!-- END input_hidden_block -->
+
+	<input type="button" value="{SUBMIT_BUTTON}" onClick="reloadParentWindow();document.forms[0].submit();">
+<!--reloadParentWindow()" /><br/>-->
+	<input type="reset" value="{CANCEL_BUTTON}" /><br/>
+	</form>
+	<!-- END main_block -->

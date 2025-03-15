@@ -1,0 +1,196 @@
+<!-- BEGIN main_block -->
+<h1>
+  {ADD_PROJECT_TITLE}
+</h1>
+<script type="text/javascript" language="Javascript">
+  <!--
+      function AddUser()
+      {
+		NeuerEintrag = new Option(document.addProject.elements['availableUsers[]'][document.addProject.elements['availableUsers[]'].selectedIndex].text, document.addProject.elements['availableUsers[]'][document.addProject.elements['availableUsers[]'].selectedIndex].value, true);
+		document.addProject.elements['projectUsers[]'].options[document.addProject.elements['projectUsers[]'].length] = NeuerEintrag;
+		document.addProject.elements['availableUsers[]'].options[document.addProject.elements['availableUsers[]'].selectedIndex] = null;
+		document.Testform.neu.value = "";
+	}	
+
+function RemoveUser()
+	{
+	      NeuerEintrag = new Option(document.addProject.elements['projectUsers[]'][document.addProject.elements['projectUsers[]'].selectedIndex].text, document.addProject.elements['projectUsers[]'][document.addProject.elements['projectUsers[]'].selectedIndex].value, true);
+
+	      document.addProject.elements['availableUsers[]'].options[document.addProject.elements['availableUsers[]'].length] = NeuerEintrag;
+	      document.addProject.elements['projectUsers[]'].options[document.addProject.elements['projectUsers[]'].selectedIndex] = null;
+	      }
+
+	      function testAlert()
+	      {
+	      alert(document.addProject.availableUsers[0]);
+	      }
+
+	    //  window.onload = function() {document.changeUserForm.fields[2].focus();}
+	    function openWindow(url)
+	    {
+	    myWindow = window.open(url, "newWindow", 'width=310,height=422, toolbar=1') ;
+	    
+//	    myWindow.location.reload();
+	    }
+
+		 function SelectAllList(CONTROL)
+		 {
+		 for(var i = 0;i < CONTROL.length;i++)
+		 {
+		 CONTROL.options[i].selected = true;
+		 }
+		 }
+	    
+
+
+	    -->
+	</script>
+	<h2>{MESSAGES}</h2>
+	<form name="addProject" action="{FORM_ACTION}" method="POST">
+	  <p>	  
+	    <table>
+	      <tr>
+		<th colspan="2">
+		  {LABEL_PROJECT_TITLE}
+		</th>
+	      </tr>
+	      <tr>
+		<!-- BEGIN title_language_header_block -->
+		<th>{LABEL_TITLE_LANGUAGE}:</th>
+		<!-- END title_language_header_block -->	      
+	      </tr>
+	      <tr>
+		<!-- BEGIN title_language_block -->
+		<td>
+		  <input type="hidden" name="project[title_translation][trans_id]" value="{PROJECT_TITLE_ID}" />
+		  <input type="text" name="project[title_translation][{TITLE_LANGUAGE_CODE}]" value="{PROJECT_TITLE}" size="40" />
+		</td>
+		<!-- END title_language_block -->
+	      </tr>
+	      <tr>
+		<th colspan="2">
+		  {LABEL_PROJECT_DESC}
+		</th>
+	    </tr>
+	    <tr>
+		<!-- BEGIN description_language_header_block -->
+		<th>{LABEL_DESCRIPTION_LANGUAGE}:</th>
+		<!-- END description_language_header_block -->	      
+	    </tr>
+	      
+	      <tr>
+		<!-- BEGIN description_language_block -->
+		<td>
+		  <input type="hidden" name="project[description_translation][trans_id]" value="{PROJECT_DESCRIPTION_ID}" />
+		  <textarea name="project[description_translation][{TITLE_LANGUAGE_CODE}]" cols="38" rows="5">{PROJECT_DESCRIPTION}</textarea>
+		</td>
+		<!-- END description_language_block -->
+	      </tr>
+	    </table>
+	    
+	    
+	    <input type="hidden" name="project[pId]" value="{PROJECT_ID}" />
+	    <!--
+		<div id="login_table">
+		  <div id="login_t1">{LABEL_PROJECT_TITLE}</div><div id="login_t2"><input type="text" name="project[pName]" value="{PROJECT_TITLE}" /></div></div><br />
+		{LABEL_PROJECT_DESC}<textarea name="project[pDescription]" cols="40" rows="5">{PROJECT_DESC}</textarea><br />
+		</p>
+	      -->
+	    <table border="0">
+	      <tr>
+		<th>
+		  {LABEL_PROJECT_USERS}
+		</th>
+		<th></th>
+		<th>
+		  {LABEL_AVAILABLE_USERS}
+		</th>
+	      <tr>
+		<td>
+		  <select name="projectUsers[]" size="7" multiple="multiple">
+		    <!-- BEGIN project_user_block -->
+		    <option value="{USER_ID}">{USER_FIRST_NAME} {USER_LAST_NAME}</option>
+		    <!-- END project_user_block -->
+		  </select>
+		</td>
+		<td>
+		  <input type="button" value="<" onClick="AddUser()" /><br />
+		  <input type="button" value=">" onClick="RemoveUser()" /><br />
+		</td>
+		<td>
+		  <select size="7" name="availableUsers[]" multiple="multiple">
+		    <!-- BEGIN available_user_block -->
+		    <option value="{USER_ID}">{USER_FIRST_NAME} {USER_LAST_NAME}</option>
+		    <!-- END available_user_block -->
+		  </select>
+		</td>
+	      </tr>
+	    </table>
+<!--	    <a href='?uid={USER_ID}'>{USER_FIRST_NAME} {USER_LAST_NAME} ({USER_NAME}) </a><br />-->
+
+<!--	    <input type="Submit" name="inviteButton" value="{LABEL_INVITE_BUTTON}" onClick="SelectAllList(document.addProject.elements['projectUsers[]']);openWindow('user_mgr/run.InviteUser.php')" />-->
+
+
+	    <table>
+	      <tr>
+		<td class="label">
+		  {LABEL_HEUR_SET_TITLE}
+		</td>
+		<td>
+		  <select name="project[heurSetId]">
+		    <option value="0">{LABEL_NO_HEURS}</option>
+		    <!-- BEGIN heur_set_block -->
+		    <option value="{HEUR_SET_ID}" {SELECTED}>{HEUR_SET_NAME}</option>
+		    <!-- END heur_set_block -->
+		  </select>
+		</td>
+	      </tr>
+	      <tr>
+		<td class="label">
+		  {LABEL_ENV_TITLE}
+		</td>
+		<td>
+		  <input type="hidden" name="project[envId]" value="0" />
+		  <select name="project[envId]">
+		    <!-- BEGIN env_block -->
+		    <option value="{ENV_ID}" {SELECTED}>{ENV_NAME}</option>
+		    <!-- END env_block -->
+		  </select> 
+		</td>
+	      </tr>
+	      <tr>
+		<td class="label">
+		  {LABEL_SCHEME_TITLE}
+		</td>
+		<td>
+		  <select name="project[schemeId]">
+		    <!-- BEGIN scheme_block -->
+		    <option value="{SCHEME_ID}" {SELECTED}>{SCHEME_NAME}</option>
+		    <!-- END scheme_block -->
+		  </select>
+		</td>
+	      </tr>
+	      <tr>
+		<td class="label">
+		  {LABEL_PROJECT_PHASE}
+		</td>
+		<td>
+		  <select name="project[pPhase]">
+		    <!-- BEGIN phase_block -->
+		    <option value="{PHASE_VALUE}" {SELECTED}>{PHASE_TITLE}</option>
+		    <!-- END phase_block -->
+		  </select> 
+		</td>
+	      </tr>
+	      <tr>
+		<td colspan="2" class="buttons">
+		  <input type="hidden" name="form_id" value="add_project" />
+		  <input type="hidden" name="url" value="{RETURN_URL}" />
+		  <input type="Submit" name="Submit" value="{LABEL_SUBMIT_BUTTON}" 
+			 onClick="SelectAllList(document.addProject.elements['projectUsers[]'])"/>
+		  <input type="Reset" name="Reset" value="{LABEL_CANCEL_BUTTON}" />
+		</td>
+	      </tr>
+	    </table>
+	</form>
+	<!-- END main_block -->

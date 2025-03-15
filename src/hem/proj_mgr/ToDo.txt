@@ -1,0 +1,10 @@
+User --> Evaluator
+Sets of Heuristics !== Heuristic Sets
+
+Evaluation !== Your Projects (change to My Projects)
+
+Attachment handling with hedaers?
+
+
+upload screenshots directly via table
+editing direct in table

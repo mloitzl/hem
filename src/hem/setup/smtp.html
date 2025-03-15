@@ -1,0 +1,36 @@
+	<!-- BEGIN main_block -->
+	<h1>{SMTP_SCREEN_TITLE}</h1>
+	<h2>{MESSAGES}</h2>
+	
+	<!-- BEGIN message_block -->
+	{MESSAGE_FILES}
+	<!-- END message_block -->
+
+	<br />
+	<form action="{FORM_ACTION}" method="{FORM_METHOD}">
+	  <table border="0">
+	    <tr>
+	      <td>{LABEL_SMTP_HOST}</td>
+	      <td><input type="text" name="smtp_host" value="{VALUE_SMTP_HOST}" size="65" /></td>
+	    </tr>
+	    <tr>
+	      <td>{LABEL_SMTP_SENDER}</td>
+	      <td><input type="text" name="smtp_sender" value="{VALUE_SMTP_SENDER}" size="65" /></td>
+	    </tr>
+	    <tr>
+	      <td>{LABEL_SMTP_USER}</td>
+	      <td><input type="text" name="smtp_user" value="{VALUE_SMTP_USER}" size="65" /></td>
+	    </tr>
+	    <tr>
+	      <td>{LABEL_SMTP_PASS}</td>
+	      <td><input type="text" name="smtp_pass" value="{VALUE_SMTP_PASS}" size="65" /></td>
+	    </tr>
+	  </table>
+	  <hr />
+	  <input type="Submit" name="testmail" value="{LABEL_SEND_TESTMAIL}" />&nbsp;{LABEL_TO}&nbsp;<input type="text" name="test_recipient" value="{VALUE_TEST_RECIPIENT}" size="30" />
+	  <hr />
+	  <input type="hidden" name="step" value="4" />
+	  <input type="Submit" value="{LABEL_PROCEED}" />
+	</form>
+
+	<!-- END main_block -->

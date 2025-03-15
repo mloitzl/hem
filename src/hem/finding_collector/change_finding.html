@@ -1,0 +1,115 @@
+	<h1>
+	    {ADD_FINDING_TITLE}
+	</h1>
+	<script type="text/javascript" language="Javascript">
+	  <!--
+	    //  window.onload = function() {document.changeUserForm.fields[2].focus();}
+	    function openWindow(url)
+	    {
+	    myWindow = window.open(url, "newWindow", 'width=310,height=422, toolbar=1') ;
+	    
+//	    myWindow.location.reload();
+	    }
+	    -->
+	</script>
+	<h2>{MESSAGES}</h2>
+	<!-- BEGIN main_block -->
+	<form name="addFinding" action="{FORM_ACTION}" method="POST" enctype="multipart/form-data">
+	  <table>
+	    <tr>
+	      <td class="label">{LABEL_FINDING_TEXT}</td>
+	      <td>
+		<textarea name="data[fText]" rows="7" cols="50">{VALUE_FINDING_TEXT}</textarea>
+	      </td>
+	    </tr>
+	    <tr>
+	      <td class="label">{LABEL_POSITIVE}</td>
+	      <td><input type="checkbox" name="data[is_positive]" {POSITIVE_CHECKED} /></td>
+	    </tr>
+	    <!-- BEGIN heuristic_drop_down_block -->
+	    <tr>
+	      <td class="label">
+		{LABEL_HEURISTIC}
+	      </td>
+	      <td>
+		<select name='{SELECT_NAME_HEURISTIC}'>
+		  <!-- BEGIN heuristic_drop_down_option_block -->
+		  <option value='{OPTION_VALUE_HEURISTIC}' {HEURISTIC_SELECTED}>{OPTION_TEXT_HEURISTIC}</option>
+		  <!-- END heuristic_drop_down_option_block -->
+		</select><a href="{HEURISTIC_HELP_URL}" target="_blank">{LABEL_HEURISTIC_HELP}</a>
+	      </td>
+	    </tr>
+	    <!-- END heuristic_drop_down_block -->
+	    <!-- BEGIN annotated_screenshot_upload_block -->
+	    <tr>
+	      <td class="label">
+		{LABEL_ANNOTATED_SCREENSHOT}
+	      </td>
+	      <td>
+		<input type="file" name="annotated_screenshot"  size="40" />
+	      </td>
+	      </tr>
+	    <!-- END annotated_screenshot_upload_block -->
+
+	  <!-- BEGIN annotated_screenshot_block -->
+	    <tr>
+	      <td class="label">
+		{LABEL_ANNOTATED_SCREENSHOT}
+	      </td>
+	      <td>
+		<a href="{ANNOTATED_SCREENSHOT_FULLSIZE_URL}" {TARGET}><img src="{ANNOTATED_SCREENSHOT_URL}" /></a>
+	      <input type="Submit" name="deleteAnnotatedScreenshot" value="{LABEL_DELETE_ANNOTATED_SCREENSHOT}" />
+	      <input type="hidden" name="annotated_id" value="{ANNOTATED_ID}" />
+	      </td>
+	    </tr>
+	  <!-- END annotated_screenshot_block -->
+
+
+	  <!-- BEGIN fullsize_screenshot_upload_block -->
+	    <tr>
+	      <td class="label">
+		{LABEL_FULLSIZE_SCREENSHOT}
+	      </td>
+	      <td>
+		<input type="file" name="fullsize_screenshot"  size="40" />
+	      </td>
+	    </tr>
+	  <!-- END fullsize_screenshot_upload_block -->
+	  <!-- BEGIN fullsize_screenshot_block -->
+	  <tr>
+	    <td class="label">
+	      {LABEL_FULLSIZE_SCREENSHOT}
+	    </td>
+	    <td>
+	      <a href="{FULLSIZE_SCREENSHOT_FULLSIZE_URL}" {TARGET}><img src="{FULLSIZE_SCREENSHOT_URL}" /></a>
+	      <input type="Submit" name="deleteFullsizeScreenshot" value="{LABEL_DELETE_FULLSIZE_SCREENSHOT}" />
+	      <input type="hidden" name="fullsize_id" value="{FULLSIZE_ID}" />
+	    </td>
+	  </tr>
+	  <!-- END fullsize_screenshot_block -->
+	  
+
+	    <tr>
+	      <td class="buttons" colspan="2">
+		<input type="hidden" name="data[pId]" value="{PROJECT_ID}" />
+		<input type="hidden" name="url" value="{RETURN_URL}" />
+		<input type="hidden" name="form_id" value="add_finding" />
+		<input type="hidden" name="fid" value="{FINDING_ID}" />
+		<input type="hidden" name="data[after]" value="{INSERT_AFTER}" />
+		<input type="Submit" name="Submit" value="{SUBMIT_BUTTON}" />
+		<input type="Reset" name="Reste" value="{CANCEL_BUTTON}" />
+	      </td>
+	    </tr>
+	  </table>
+
+	  <!-- <hr/> -->
+	  <!-- BEGIN after_action_block -->
+	  {LABEL_AFTERSUBMIT_ACTION}<br/>
+	  <input type="radio" name="action" value="add_another" checked="checked"> {LABEL_ADD_ANOTHER_FINDING}<br/>
+	  <input type="radio" name="action" value="discontinue"> {LABEL_DISCONTINUE_EVALUATION}<br/>
+	  <!-- END after_action_block -->
+	  
+	</form>
+	<!-- END main_block -->
+
+	  
