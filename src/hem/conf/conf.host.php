@@ -6,27 +6,28 @@
 
 // The absolute Path to the Doc Root of the Web Server
 // Note: Set manually if the global does not fit.
-$DOC_ROOT = $_SERVER['DOCUMENT_ROOT']; // Written by HEM Setup March 15, 2025, 4:11 pm
+$DOC_ROOT = $_SERVER['DOCUMENT_ROOT']; // Written by HEM Setup March 16, 2025, 2:39 pm
 // The relative path under Doc Root, where the hem directory is
-$USER_DIR =  '/hem';  // Written by HEM Setup March 15, 2025, 4:11 pm
+$USER_DIR =  '/hem';  // Written by HEM Setup March 16, 2025, 2:39 pm
 // Not used!
-$PROJECT_NAME =  '';  // Written by HEM Setup March 15, 2025, 4:11 pm
+$PROJECT_NAME =  '';  // Written by HEM Setup March 16, 2025, 2:39 pm
 
 // Should debugging be activated?
 $DEBUGGER = FALSE;
 
-
 // ## Database Connection ##
 
 // Database Management System to use (mysql, or sqlite)
-$USE_DATABASE = 'mysql'; // Written by HEM Setup March 15, 2025, 4:11 pm
+$USE_DATABASE = 'mysql'; // Written by HEM Setup March 15, 2025, 9:02 pm
 
 // 1. MySQL
 // Hostname
-$AUTH_DB_HOST = 'mariadb'; // Written by HEM Setup March 15, 2025, 4:11 pm
+$AUTH_DB_HOST = getenv('MYSQL_HOST'); // Written by HEM Setup March 15, 2025, 9:02 pm
+// $AUTH_DB_HOST = 'mariadb'; // Written by HEM Setup March 15, 2025, 9:02 pm
 
 // Database name
-$AUTH_DB_NAME = 'hem'; // Written by HEM Setup March 15, 2025, 4:11 pm
+// $AUTH_DB_NAME = 'hem'; // Written by HEM Setup March 15, 2025, 9:02 pm
+$AUTH_DB_NAME = getenv('MYSQL_DB'); // Written by HEM Setup March 15, 2025, 9:02 pm
 
 // 2. SQLite
 $SQLITE_DB_FILE = 'hem.sqlite?mode=0666';
@@ -41,9 +42,9 @@ $APP_DB_HOST = '';
 $APP_DB_NAME = '';
 
 // Username for Database connection
-$AUTH_DB_USER = ''; // Written by HEM Setup March 15, 2025, 4:11 pm
+$AUTH_DB_USER = getenv('MYSQL_USER'); // Written by HEM Setup March 15, 2025, 9:02 pm
 // password for database connection
-$AUTH_DB_PASS = ''; // Written by HEM Setup March 15, 2025, 4:11 pm
+$AUTH_DB_PASS = getenv('MYSQL_PW'); // Written by HEM Setup March 15, 2025, 9:02 pm
 
 
 // Not used
@@ -68,10 +69,10 @@ $IMAGE_DB_DIR = $DOC_ROOT . $USER_DIR . "/image_db";
 // o (OPTIONAL) SMTP Authentication username
 // o (OPTIONAL) SMTP Authentication passwoird
 
-$SMTP_HOST = 'localhost'; // Written by HEM Setup March 15, 2025, 4:11 pm
-$SMTP_SENDER_ADDRESS = 'noreply@some.domain'; // Written by HEM Setup March 15, 2025, 4:11 pm
-$SMTP_USERNAME = ''; // Written by HEM Setup March 15, 2025, 4:11 pm
-$SMTP_PASS = ''; // Written by HEM Setup March 15, 2025, 4:11 pm
+$SMTP_HOST = 'localhost'; // Written by HEM Setup March 16, 2025, 2:39 pm
+$SMTP_SENDER_ADDRESS = 'noreply@some.domain'; // Written by HEM Setup March 16, 2025, 2:39 pm
+$SMTP_USERNAME = ''; // Written by HEM Setup March 16, 2025, 2:39 pm
+$SMTP_PASS = ''; // Written by HEM Setup March 16, 2025, 2:39 pm
 
 
 ?>

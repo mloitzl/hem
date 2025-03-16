@@ -827,11 +827,11 @@ class ReportGenerator extends PHPApplication
 		$lang = 'en';
 		break;
 	      }
-	    
-	    if(isset($_ENV['LANG']) && stristr($_ENV['LANG'], 'utf-8'))
-	      $report_template->setVar('CHAR_ENCODING', 'utf-8');
-	    else
-	      $report_template->setVar('CHAR_ENCODING', 'iso-8859-1');
+
+				// if(isset($_ENV['LANG']) && stristr($_ENV['LANG'], 'utf-8'))
+				$report_template->setVar('CHAR_ENCODING', 'utf-8');
+				// else
+				//   $report_template->setVar('CHAR_ENCODING', 'iso-8859-1');
 
 
 	    //	    echo "$lang<br>";

@@ -344,11 +344,16 @@ class Setup extends PHPApplication
 
     $current_settings = $this->getConfigSettings();
 
-    if($dbms == 'sqlite')
-      $dsn= 'sqlite:///'.$APP_ROOT.'/'.$this->unQuote($current_settings['$SQLITE_DB_FILE']);
-    else
-      $dsn = "mysql://".$this->unQuote($current_settings['$AUTH_DB_USER']).":".$this->unQuote($current_settings['$AUTH_DB_PASS'])."@".$this->unQuote($current_settings['$AUTH_DB_HOST'])."/".$this->unQuote($current_settings['$AUTH_DB_NAME']);
-
+		$dsn = '';
+		if ($dbms == 'sqlite') {
+			$dsn = 'sqlite:///' . $APP_ROOT . '/' . $this->unQuote($current_settings['$SQLITE_DB_FILE']);
+		} else {
+			if ($current_settings['$AUTH_DB_HOST'] && strpos($current_settings['$AUTH_DB_HOST'], 'getenv') === 0) {
+				$dsn = "mysql://" . getenv("MYSQL_USER") . ":" . getenv("MYSQL_PW") . "@" . getenv("MYSQL_HOST") . "/" . getenv("MYSQL_DB");
+			} else {
+				$dsn = "mysql://" . $this->unQuote($current_settings['$AUTH_DB_USER']) . ":" . $this->unQuote($current_settings['$AUTH_DB_PASS']) . "@" . $this->unQuote($current_settings['$AUTH_DB_HOST']) . "/" . $this->unQuote($current_settings['$AUTH_DB_NAME']);
+			}
+		}
 
     require_once 'DB.php';
     $dbh = new DBI($dsn);
@@ -558,8 +563,13 @@ class Setup extends PHPApplication
     if($dbms == 'mysql')
       {
 	// Init MySQL Database
-	
-	$dsn = "mysql://".$this->unQuote($current_settings['$AUTH_DB_USER']).":".$this->unQuote($current_settings['$AUTH_DB_PASS'])."@".$this->unQuote($current_settings['$AUTH_DB_HOST'])."/".$this->unQuote($current_settings['$AUTH_DB_NAME']);
+
+			if ($current_settings['$AUTH_DB_HOST'] && strpos($current_settings['$AUTH_DB_HOST'], 'getenv') === 0) {
+				$dsn = "mysql://" . getenv("MYSQL_USER") . ":" . getenv("MYSQL_PW") . "@" . getenv("MYSQL_HOST") . "/" . getenv("MYSQL_DB");
+			} else {
+				$dsn = "mysql://" . $this->unQuote($current_settings['$AUTH_DB_USER']) . ":" . $this->unQuote($current_settings['$AUTH_DB_PASS']) . "@" . $this->unQuote($current_settings['$AUTH_DB_HOST']) . "/" . $this->unQuote($current_settings['$AUTH_DB_NAME']);
+			}
+			//$dsn = "mysql://".$this->unQuote($current_settings['$AUTH_DB_USER']).":".$this->unQuote($current_settings['$AUTH_DB_PASS'])."@".$this->unQuote($current_settings['$AUTH_DB_HOST'])."/".$this->unQuote($current_settings['$AUTH_DB_NAME']);
 	
 	
 	// drop old tables
@@ -823,7 +833,10 @@ class Setup extends PHPApplication
 		$mysql_pass = $this->getPostRequestField('pass', null);
 
 		if(!is_null($hostname))
-	  	if($this->writeMySQLConfig($hostname, $dbname, $mysql_user, $mysql_pass))
+				if (
+					1 == 1
+					//$this->writeMySQLConfig($hostname, $dbname, $mysql_user, $mysql_pass)
+				)
 		    return TRUE;
 	  	else
 		    return FALSE;

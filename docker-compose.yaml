@@ -3,6 +3,10 @@ version: "3"
 volumes:
   mariadb:
     driver: local
+  mysql:
+    driver: local
+  backup:
+    driver: local
 
 networks:
   db:
@@ -10,15 +14,62 @@ networks:
 
 services:
   hem:
-    image: php4:latest
+    image: php4:test
     restart: always
     ports:
       - "9080:80"
     volumes:
       - ./src:/usr/local/apache2/htdocs
-    entrypoint: /bin/bash -c "apachectl start; while true; do sleep 1000; done"
+    entrypoint: /bin/bash -c "apachectl start; while true; do sleep 1s; echo '.'; done"
+    environment:
+      - MYSQL_HOST=mysql
+      - MYSQL_DB=hem
+      - MYSQL_USER=
+      - MYSQL_PW=
     networks:
       db:
+
+
+  mysql:
+    image: mysql:emacs
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: YOUR_ROOT_PASSWORD_HERE
+      MYSQL_USER: YOUR_MYSQL_USER_HERE
+      MYSQL_PASSWORD: YOUR_USER_PW_HERE
+    expose:
+      - "40010"
+    ports:
+      - "40010:3306"
+    volumes:
+      - mysql:/usr/local/mysql/var
+      - backup:/backup/mysql
+
+    networks:
+      db:
+    # entrypoint: >
+    #   # /bin/bash -c "/usr/local/mysql/bin/mysql_install_db --user=mysql --datadir=/usr/local/mysql/var;
+    #   # mysqld_safe --defaults-file=/usr/local/mysql/my.cnf;
+    #   # while true; 
+    #   #   do sleep 1s; echo '.'; 
+    #   # done
+    #   "
+
+  phpmyadmin-mysql:
+    image: arm64v8/phpmyadmin:latest
+    restart: always
+    expose:
+      - "40011"
+    ports:
+      - "40011:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
+    networks:
+      db:
+    depends_on:
+      - mysql
+
 
   mariadb:
     image: mariadb:10.6
