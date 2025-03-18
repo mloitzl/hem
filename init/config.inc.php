@@ -34,7 +34,7 @@ $cfg['Servers'][$i]['compress'] = false;
 /* Select mysqli if your server has it */
 $cfg['Servers'][$i]['extension'] = 'mysql';
 /* User for advanced features */
-$cfg['Servers'][$i]['user'] = 'testuser2';
+$cfg['Servers'][$i]['user'] = 'pmauser';
 $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
 
 /* Advanced phpMyAdmin features */

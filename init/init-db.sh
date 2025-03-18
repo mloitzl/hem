@@ -20,6 +20,7 @@ else
     echo "Database $DB_NAME created"
     mysql -u "$USER" -h mysql -P 3306 "$DB_NAME" </hem_backup.sql
     echo "Database $DB_NAME restored"
+    mysql -u "$USER" -h mysql -P 3306 -e "GRANT ALL PRIVILEGES ON *.* TO 'pmauser'@'%' WITH GRANT OPTION;FLUSH PRIVILEGES;"
     mysql -u "$USER" -h mysql -P 3306 -e "CREATE DATABASE phpmyadmin;"
     mysql -u "$USER" -h mysql -P 3306 </create_tables_mysql_4_1_2+.sql
 fi
