@@ -1,0 +1,19 @@
+	<!-- BEGIN main_block -->
+	<h1>{DB_SCREEN_TITLE}</h1>
+	<h2>{MESSAGES}</h2>
+	
+	<!-- BEGIN message_block -->
+	{MESSAGE_FILES}
+	<!-- END message_block -->
+
+	<br />
+	<form action="{FORM_ACTION}" method="{FORM_METHOD}">
+	  <input type="radio" name="dbms" value="mysql" {MYSQL_CHECKED} />{MESSAGE_MYSQL}<br />
+	  <input type="radio" name="dbms" value="sqlite" {SQLITE_CHECKED} />{MESSAGE_SQLITE}
+	  <br />
+	  <br />
+	  <input type="hidden" name="step" value="5" />
+	  <input type="Submit" value="{LABEL_PROCEED}" />
+	</form>
+
+	<!-- END main_block -->

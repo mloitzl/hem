@@ -13,30 +13,50 @@ networks:
     driver: bridge
 
 services:
+
+  init:
+    image: mloitzl/mysql:4.1.22
+    networks:
+      db:
+    depends_on:
+      mysql:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "/init-db.sh"]
+    volumes:
+      - ./init/init-db.sh:/init-db.sh
+      - ./init/hem_backup.sql:/hem_backup.sql
+      - ./init/create_tables_mysql_4_1_2+.sql:/create_tables_mysql_4_1_2+.sql
+
   hem:
-    image: php4:test
+    image: mloitzl/hem:0.4.1
+    build:
+      context: .
+      dockerfile: Dockerfile.hem
     restart: always
     ports:
       - "9080:80"
-    volumes:
-      - ./src:/usr/local/apache2/htdocs
-    entrypoint: /bin/bash -c "apachectl start; while true; do sleep 1s; echo '.'; done"
+    # volumes:
+    #   - ./src:/usr/local/apache2/htdocs
+    entrypoint: /bin/sh -c "apachectl start; while true; do sleep 1s; echo '.'; done"
     environment:
       - MYSQL_HOST=mysql
-      - MYSQL_DB=hem
+      - MYSQL_DB=hem2
       - MYSQL_USER=
       - MYSQL_PW=
     networks:
       db:
 
-
   mysql:
-    image: mysql:emacs
+    image: mloitzl/mysql:4.1.22
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: YOUR_ROOT_PASSWORD_HERE
       MYSQL_USER: YOUR_MYSQL_USER_HERE
       MYSQL_PASSWORD: YOUR_USER_PW_HERE
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "--silent"]
+      interval: 5s
+      retries: 10
     expose:
       - "40010"
     ports:
@@ -47,57 +67,24 @@ services:
 
     networks:
       db:
-    # entrypoint: >
-    #   # /bin/bash -c "/usr/local/mysql/bin/mysql_install_db --user=mysql --datadir=/usr/local/mysql/var;
-    #   # mysqld_safe --defaults-file=/usr/local/mysql/my.cnf;
-    #   # while true; 
-    #   #   do sleep 1s; echo '.'; 
-    #   # done
-    #   "
-
-  phpmyadmin-mysql:
-    image: arm64v8/phpmyadmin:latest
-    restart: always
-    expose:
-      - "40011"
-    ports:
-      - "40011:80"
-    environment:
-      - PMA_HOST=mysql
-      - PMA_PORT=3306
-    networks:
-      db:
-    depends_on:
-      - mysql
-
-
-  mariadb:
-    image: mariadb:10.6
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: YOUR_ROOT_PASSWORD_HERE
-      MYSQL_USER: YOUR_MYSQL_USER_HERE
-      MYSQL_PASSWORD: YOUR_USER_PW_HERE
-    expose:
-      - "40000"
-    ports:
-      - "40000:3306"
-    volumes:
-      - mariadb:/var/lib/mysql
-    networks:
-      db:
 
   phpmyadmin:
-    image: arm64v8/phpmyadmin:latest
+    # image: mloitzl/php:4.4.9    
+    image: mloitzl/phpmyadmin:2.11.11.3
+    build:
+      context: .
+      dockerfile: Dockerfile.phpmyadmin
     restart: always
-    expose:
-      - "40001"
     ports:
-      - "40001:80"
+      - "9081:80"
+    entrypoint: /bin/sh -c "apachectl start; while true; do sleep 1s; echo '.'; done"
     environment:
-      - PMA_HOST=mariadb
-      - PMA_PORT=3306
+      PMA_HOST: mysql
+    depends_on:
+      mysql:
+        condition: service_healthy
     networks:
       db:
-    depends_on:
-      - mariadb
+    volumes:
+      - ./phpMyAdmin-2.11.11.3-all-languages:/usr/local/apache2/htdocs/phpMyAdmin
+

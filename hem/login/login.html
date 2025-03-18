@@ -1,0 +1,17 @@
+<div id="login_table" onLoad="setLoginFocus()">
+  <form name="loginForm" action="{SELF_PATH}" method="post">
+    <table>
+      <tr><td class="label">{LABEL_USERNAME}</td> <td><input type="text" name="handle" value="{USERNAME}" /></td></tr>
+      <tr><td class="label">{LABEL_PASSWORD}</td> <td><input type="password" name="passwd" /></td></tr>
+      <tr><td colspan="2" class="buttons">
+	  <input type="submit" value="{LOGIN_BUTTON}" />
+	  <input type="reset" value="{CANCEL_BUTTON}" />
+	  <input type="hidden" value="{REDIRECT_URL}" name="url"/>
+      </td></tr>
+    </table>
+  </form>
+  <a href="{FORGOTTEN_PASSWORD_APP}">{LABEL_FORGOTTEN_PASSWORD}</a>
+</div>
+<script>
+  document.loginForm.handle.focus();
+</script>

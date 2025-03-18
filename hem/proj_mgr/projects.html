@@ -1,0 +1,43 @@
+	<!-- BEGIN main_block -->
+	<h1>
+	  {PROJECT_OVERVIEW_TITLE}
+	</h1>
+	<h2>{MESSAGES}</h2>
+	<table>
+	  <tr>
+	    <th>{LABEL_PROJECT_TITLE}</th>
+	    <th>{LABEL_OPERATIONS}</th>
+	    <th>{LABEL_PROJECT_PHASE}</th>
+	  </tr>
+	  <!-- BEGIN project_block -->
+	  <tr class="{BG_CLASS}">
+	    <td><a href="{EDIT_URL}"
+		   onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{PROJECT_DESCRIPTION}&lt;/pre&gt;', ''); return true;" 
+		   onmouseout="tooltipClose();">
+		{PROJECT_TITLE}
+	      </a>
+	    </td> 
+            <td class="operations"><a href='{EDIT_URL}'
+		   onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{LABEL_CHANGE_PROJECT}&lt;/pre&gt;', ''); return true;" 
+		   onmouseout="tooltipClose();">
+		<img src="templates/icons/button_edit.png"><!--{LABEL_CHANGE_PROJECT}-->
+	      </a>
+	    <a href='{DELETE_URL}'
+		   onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{LABEL_DELETE_PROJECT}&lt;/pre&gt;', ''); return true;" 
+		   onmouseout="tooltipClose();">
+		<img src="templates/icons/button_delete.png"><!--{LABEL_DELETE_PROJECT}-->
+	      </a>
+            <a href='{EXPORT_URL}' target="_blank"
+	       onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{LABEL_EXPORT_PROJECT}&lt;/pre&gt;', ''); return true;" 
+	       onmouseout="tooltipClose();">
+	      <img src="templates/icons/button_export.png"><!--{LABEL_EXPORT_PROJECT}-->
+	    </a>
+	    </td>
+            <td>{PROJECT_PHASE}</td>
+	  </tr>
+	  <!-- END project_block -->
+	</table>
+	<br />
+	<a href='{ADD_URL}'>{LABEL_ADD_PROJECT}</a><br />
+	<a href='{IMPORT_URL}'>{LABEL_IMPORT_PROJECT}</a><br />
+	<!-- END main_block -->

@@ -1,4 +1,4 @@
-# SQL User no PAssword
+# SQL User no Password
 
 ```sql
 -- # Privileges for ``@`%`
@@ -7,6 +7,55 @@ GRANT ALL PRIVILEGES ON *.* TO ``@`%` WITH GRANT OPTION;
 
 CREATE database hem;
 GRANT ALL PRIVILEGES ON `hem`.* TO ``@`%`;
+
+```
+
+## User Management
+
+```sql
+-- Create user without password
+GRANT ALL PRIVILEGES ON *.* TO 'testuser2'@'%' WITH GRANT OPTION;
+
+select Host, User, Password,Grant_priv from user;
+````
+
+- Connect from init container
+```sh
+mysql -h mysql -P 3306 -u "%"
+```
+
+```sh
+# show users
+SELECT DISTINCT user, host FROM mysql.user;
+
++------+-------------------------------+
+| user | host                          |
++------+-------------------------------+
+|      | %                             |
+| root | %                             |
+|      | buildkitsandbox               |
+| root | buildkitsandbox               |
+| root | hem-phpmyadmin-mysql-1.hem_db |
+|      | localhost                     |
+| root | localhost                     |
++------+-------------------------------+
+7 rows in set (0.00 sec)
+
+# show grants
+SHOW GRANTS FOR ''@'%';
+
++---------------------------------------------------------+
+| Grants for @%                                           |
++---------------------------------------------------------+
+| GRANT ALL PRIVILEGES ON *.* TO ''@'%' WITH GRANT OPTION |
+| GRANT ALL PRIVILEGES ON `test`.* TO ''@'%'              |
+| GRANT ALL PRIVILEGES ON `hem`.* TO ''@'%'               |
+| GRANT ALL PRIVILEGES ON `hem2`.* TO ''@'%'              |
+| GRANT ALL PRIVILEGES ON `test\_%`.* TO ''@'%'           |
++---------------------------------------------------------+
+5 rows in set (0.00 sec)
+
+
 
 ```
 

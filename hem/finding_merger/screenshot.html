@@ -1,0 +1,45 @@
+	<h1>
+	    {CHOOSE_SCREENSHOT_TITLE}
+	</h1>
+	<h2>{MESSAGES}</h2>
+	<form id="my_form" action="{FORM_ACTION}" method="{FORM_METHOD}">
+
+	  <table>
+	    <tr>
+	      <th></th>
+	      <th>{LABEL_ANNOTATED_SCREENSHOTS}</th>
+	      <th></th>
+	      <th>{LABEL_FULLSIZE_SCREENSHOTS}</th>
+	      <th>{LABEL_USER}</th>
+	    </tr>
+	      <!-- BEGIN screenshot_row_block -->
+	    <tr class="{BG_CLASS}">
+	      <!-- BEGIN annotated_screenshot_block -->
+	      <td><input type="radio" name="annotated" value="{ANNOTATED_ID}"/></td>
+	      <td><a href="{ANNOTATED_SCREENSHOT_FULLSIZE_URL}" target="{ANNOTATED_TARGET}"><img src="{ANNOTATED_SCREENSHOT_URL}"></a></td>
+	      <!-- END annotated_screenshot_block -->
+
+	      <!-- BEGIN no_annotated_screenshot_block -->
+	      <td>&nbsp;</td><td>{NO_ANNOTATED_SCREENSHOT_SUBMITTED}</td>
+	      <!-- END no_annotated_screenshot_block -->
+
+	      <!-- BEGIN fullsize_screenshot_block -->
+	      <td><input type="radio" name="fullsize" value="{FULLSIZE_ID}"/></td>
+	      <td><a href="{FULLSIZE_SCREENSHOT_FULLSIZE_URL}" target="{FULLSIZE_TARGET}"><img src="{FULLSIZE_SCREENSHOT_URL}"></a></td>
+	      <!-- END fullsize_screenshot_block -->
+
+	      <!-- BEGIN no_fullsize_screenshot_block -->
+	      <td>&nbsp;</td><td>{NO_FULLSIZE_SCREENSHOT_SUBMITTED}</td>
+	      <!-- END no_fullsize_screenshot_block -->
+
+	      <td>{FIRST_NAME}&nbsp;{LAST_NAME}</td>
+	    </tr>
+	    <!-- END screenshot_row_block -->
+	  </table>
+	  <input type="hidden" name="url" value="{RETURN_URL}"/>
+	  <input type="hidden" name="fid" value="{FINDING_ID}"/>
+	  <input type="hidden" name="form_id" value="choose_screenshot"/>
+	  <input type="hidden" name="screenshot_type" value="{SCREENSHOT_TYPE}"/>
+	  <input type="Submit" value="{CHOOSE_SCREENSHOT_BUTTON}"/>
+	</form>
+	

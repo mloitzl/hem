@@ -1,0 +1,81 @@
+	<h1>
+	    {FINDINGS_TITLE}<!-- {PROJECT_TITLE} -->
+	</h1>
+	<h2>{MESSAGES}</h2
+	<!-- BEGIN main_block -->
+	
+	<table border="0">
+	  <tr bgcolor="{TABLE_HEADING_COLOR}">
+	    <th></th>
+	    <th>{LABEL_FINDING_TEXT}</th>
+	    <th>{LABEL_POSITIVE}</th>
+	    <th>{LABEL_FINDING_OPERATIONS}</th>
+	    <!-- BEGIN heuristic_title_block -->
+	    <th>{LABEL_HEURISTIC}</th>
+	    <!-- END heuristic_title_block -->
+	    <th>{LABEL_ANNOTATED_SCREENSHOT}</th>
+	    <th>{LABEL_FULLSIZE_SCREENSHOT}</th>
+	  </tr>
+	  <!-- BEGIN finding_block -->
+	  <tr class="{BG_CLASS}">
+	    <td></td>
+	    <td>
+	      {FINDING_TITLE}
+	    </td>
+	    <td>
+	      {IS_POSITIVE}
+	    </td>
+	    <td class="operations">
+	      <a href="{EDIT_URL}" 
+		 onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{LABEL_EDIT}&lt;/pre&gt;', ''); return true;" onmouseout="tooltipClose();">
+		<img src="templates/icons/button_edit.png"><!--{LABEL_EDIT}--></A>
+	      <a href="{DELETE_URL}"
+		 onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{LABEL_DELETE}&lt;/pre&gt;', ''); return true;" onmouseout="tooltipClose();">
+		<img src="templates/icons/button_delete.png"><!--{LABEL_DELETE}--></a>
+	      <br/>
+	      <!-- BEGIN up_block -->
+	      <a href="{UP_URL}"
+onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{LABEL_UP}&lt;/pre&gt;', ''); return true;" onmouseout="tooltipClose();">
+		<img src="templates/icons/button_up.png"><!--{LABEL_UP}--></a>
+	      <!-- END up_block -->
+	      <!-- BEGIN down_block -->
+	      <a href="{DOWN_URL}"
+		 onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{LABEL_DOWN}&lt;/pre&gt;', ''); return true;" onmouseout="tooltipClose();"><img src="templates/icons/button_down.png"><!--{LABEL_DOWN}--></a><br/>
+	      <!-- END down_block -->
+	    </td>
+	    <!-- BEGIN heuristic_block -->
+	    <td>
+	      {FINDING_HEURISTIC}
+	    </td>
+	    <!-- END heuristic_block -->
+	    <td>
+	      <!-- BEGIN annotated_screenshot_block -->
+	      <a href="{ANNOTATED_SCREENSHOT_FULLSIZE_URL}" {TARGET}><img src="{ANNOTATED_SCREENSHOT_URL}" /></a>
+	      <!-- END annotated_screenshot_block -->
+	    </td>
+	    <td>
+	      <!-- BEGIN fullsize_screenshot_block -->
+	      <a href="{FULLSIZE_SCREENSHOT_FULLSIZE_URL}" {TARGET}><img src="{FULLSIZE_SCREENSHOT_URL}" /></a>
+	      <!-- END fullsize_screenshot_block -->
+	    </td>
+	  </tr>
+	  <tr>
+	    <td><a href="{INSERT_URL}"
+		   onmouseover="tooltipLink('&lt;pre style=&quot;margin:0px;&quot;&gt;{LABEL_INSERT}&lt;/pre&gt;', ''); return true;" onmouseout="tooltipClose();">
+		<img src="templates/icons/button_right.png"><!-- {LABEL_INSERT} --></a></td>
+	  </tr>
+	  <!-- END finding_block -->
+
+	  <!-- BEGIN no_finding_block -->
+	  <tr>
+	    <td>
+	      {NO_FINDINGS_MESSAGE}
+	    </td>
+	    <td>
+	      <a href="{ADD_FINDING_URL}">{LABEL_ADD_FINDING}</a>
+	    </td>
+	  </tr>
+	  <!-- END no_finding_block -->
+
+	</table>
+	<!-- END main_block -->

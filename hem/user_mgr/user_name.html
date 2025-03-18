@@ -1,0 +1,23 @@
+      <h1>
+	{FORGOTTENPASSWORD_TITLE}
+      </h1>
+      <h2>{MESSAGES}</h2>
+      <!-- BEGIN main_block -->
+
+      {FORGOT_PASSWORD_MESSAGE}
+      <br />
+      <br />
+      <form action="{FORM_ACTION}" method="{FORM_METHOD}">
+	<table>
+	  <tr>
+	    <input type="hidden" name="form_id" value="forgot_password" />
+	    <td class="label">{LABEL_USERNAME}</td>
+	    <td><input type="text" name="username" /></td>
+	  </tr>
+	  <tr>
+	    <td class="buttons" colspan="2"><input type="Submit" value="{LABEL_SUBMIT}" /></td>
+	  </tr>
+	</table>
+      </form>
+
+      <!-- END main_block -->

@@ -1,0 +1,265 @@
+	<!-- BEGIN main_block -->
+
+	<h1 class="title">{REPORT_TITLE}</h1>
+	<!--	<a href="{TITLE_EDIT_URL}"><img src="templates/icons/button_edit.png"></a> -->
+	<p class="title">
+	  <!-- BEGIN title_evaluator_block -->
+	  {EVALUATOR_FIRST_NAME} {EVALUATOR_LAST_NAME} <br />
+	  <!-- END title_evaluator_block -->
+	</p>
+	
+	<h2 class="title">{PROJECT_TITLE}</h2>
+
+	<h3 class="title">{PROJECT_DESCRIPTION}</h3>
+	
+	<h3 class="title">{REPORT_DATE}</h3>
+	
+	
+	<h2>1. {LABEL_EXECUTIVE_SUMMARY}</h2>
+
+	{CHAPTER_1_GENERAL}
+	
+	<h2>2. {LABEL_ENVIRONMENT}</h2>
+	
+	{CHAPTER_2_GENERAL}
+
+	<div class="table">
+	  <table  border="1" cellspacing="3" cellpadding="2">
+	    
+	    <caption>
+	      <span class="label">{LABEL_ENVIRONMENT_TABLE}:</span>
+	      {LABEL_ENVIRONMENT_TABLE_CAPTION}
+	    </caption>
+	    
+	    <tr>
+	      <th>{LABEL_EVALUATOR}</th>
+	      <!-- BEGIN environment_evaluator_block -->
+	      <th>{EVALUATOR_FIRST_NAME} {EVALUATOR_LAST_NAME}</th>
+	      <!-- END environment_evaluator_block -->
+	    </tr>
+	    
+	    <!-- BEGIN environment_attribute_block -->
+	    <tr>
+	      <th>{ATTRIBUTE_TITLE}</th>
+	      <!-- BEGIN attribute_evaluator_block -->
+	      <td>{ATTRIBUTE_VALUE}</td>
+	      <!-- END attribute_evaluator_block -->
+	    </tr>
+	    <!-- END environment_attribute_block -->
+	    
+	  </table>
+	</div>
+	
+	
+	
+	
+	<h2>3. {LABEL_POSITIVE_IMPRESSIONS}</h2>
+
+	{CHAPTER_3_GENERAL}
+	
+
+	<!-- BEGIN positive_block -->
+	<h3>3.{POSTITIVE_SUBCHAPTER_NUMBER}. {POSITIVE_SUBCHAPTER_TITLE}</h3>
+	<p>{POSITIVE_TEXT}</p>
+	<!-- BEGIN positive_screenshot_block -->
+	<div class="figure">
+	  <table>
+	    
+	    <caption>
+	      <span class="label">{LABEL_FIGURE} {FIGURE_NUMBER}:</span>
+	      {FIGURE_CAPTION}<br />
+	    </caption>
+	    
+	    <tr>
+	      <td>
+		<!-- BEGIN positive_link_block -->
+		<a href="{FIGURE_FULLSIZE_URL}">
+		  <img src="{FIGURE_ANNOTATED_URL}" width="{FIGURE_HEIGHT}" height="{FIGURE_WIDTH}"
+		       alt="{FIGURE_CAPTION}" /></a>
+		<!-- END positive_link_block -->
+		<!-- BEGIN positive_no_link_block -->
+		<img src="{FIGURE_ANNOTATED_URL}" width="{FIGURE_HEIGHT}" height="{FIGURE_WIDTH}"
+		     alt="{FIGURE_CAPTION}" />
+		<!-- END positive_no_link_block -->
+	      </td>
+	    </tr>
+	  </table>
+	</div>
+	<!-- END positive_screenshot_block -->
+	<!-- END positive_block -->
+
+	<h2>4. {LABEL_ANALYSIS_MAIN_PROBLEMS}</h2>
+
+	{CHAPTER_4_GENERAL}
+
+	<!-- BEGIN main_problem_block -->
+	<h3>4.{MAIN_PROBLEM_SUBCHAPTER_NUMBER}. {MAIN_PROBLEM_SUBCHAPTER_TITLE}</h3>
+	<p>{MAIN_PROBLEM_TEXT}</p>
+	<!-- BEGIN finding_screenshot_block -->
+	<div class="figure">
+	  <table>
+	    
+	    <caption>
+	      <span class="label">{LABEL_FIGURE} {FIGURE_NUMBER}:</span>
+	      {FIGURE_CAPTION}<br />
+	    </caption>
+	    
+	    <tr>
+	      <td>
+		<!-- BEGIN screenshot_link_block -->
+		<a href="{FIGURE_FULLSIZE_URL}">
+		  <img src="{FIGURE_ANNOTATED_URL}" width="{FIGURE_HEIGHT}" height="{FIGURE_WIDTH}"
+		       alt="{FIGURE_CAPTION}" /></a>
+		<!-- END screenshot_link_block -->
+		<!-- BEGIN screenshot_no_link_block -->
+		<img src="{FIGURE_ANNOTATED_URL}" width="{FIGURE_HEIGHT}" height="{FIGURE_WIDTH}"
+		     alt="{FIGURE_CAPTION}" />
+		<!-- END screenshot_no_link_block -->
+	      </td>
+	    </tr>
+	  </table>
+	</div>
+	<!-- END finding_screenshot_block -->
+	<!-- END main_problem_block -->
+
+	<h2>5. {LABEL_LIST_OF_PROBLEMS}</h2>
+	
+	<p>
+	  Aggregated list of all problems found, in descending order of average
+	  severity.
+	</p>	
+	
+	<div class="table">
+	  <table cellpadding="5" border="0">
+	    
+	    <caption>
+	      <span class="label">{LABEL_LEGEND}:</span>
+	      {LABEL_MEANING_OF_CODES}
+	    </caption>
+	    
+	    <tr>
+	      <td>
+		<table cellpadding="3" border="1">
+		  <tr>
+		    <th>{LABEL_CODE}</th>
+		    <th>{LABEL_MEANING}</th>
+		  </tr>
+		  
+		  <!-- BEGIN initials_evaluator_block -->
+	  	  <tr>
+		    <td>{INITIAL_VALUE}</td>
+		    <td>{EVALUATOR_FIRST_NAME} {EVALUATOR_LAST_NAME}</td>
+		  </tr>
+		  <!-- END initials_evaluator_block -->
+		  
+		  <tr>
+		    <td>{LABEL_FOUND_SHORT}</td>
+		    <td>{LABEL_FOUND_MEANING}</td>
+		  </tr>
+		</table>
+	      </td>
+	      
+	      <td>
+		<!-- BEGIN scale_block -->
+		<table cellpadding="3" border="1">
+		  
+		  <tr><th>{SCALE_TITLE}</th><th>{LABEL_MEANING}</th></tr>
+		  <!-- BEGIN scale_value_block -->
+		  <tr><td>{SCALE_VALUE}</td><td>{SCALE_VALUE_TITLE}</td></tr>
+		  <!-- END scale_value_block -->
+
+		  <tr><td>{LABEL_AVERAGE_SHORT}</td><td>{LABEL_AVERAGE_LONG}</td></tr>
+		</table>
+		<!-- END scale_block -->
+	      </td>
+	    </tr>
+	    
+	  </table>
+	</div>
+
+	<div class="table">
+	  <table cellpadding="5" border="1">
+	    
+	    <caption>
+	      <span class="label">{LABEL_FINDING_TABLE}:</span>
+	      {LABEL_FINDING_TABLE_CAPTION}
+	    </caption>
+
+	    <tr>
+	      <th rowspan="2">{LABEL_FINDING_TEXT}</th>
+	      <!-- BEGIN heuristic_header_block -->
+	      <th rowspan="2">{LABEL_HEURISTIC}</th>
+	      <!-- END heuristic_header_block -->
+	      <!-- BEGIN summary_header_block -->
+	      <th colspan="{NUMBER_OF_EVALUATORS}">{HEADER_COL_NAME}</th>
+	      <!-- END summary_header_block -->
+	    </tr>
+
+	    <tr>
+	      <!-- BEGIN finding_header_initials_evaluator_block -->
+	      <th>{FINDING_HEADER_INITIAL}</th>
+	      <!-- END finding_header_initials_evaluator_block -->
+
+	    </tr>	    
+	    <!-- BEGIN finding_row -->
+	    <tr>
+	      <td>
+		{FINDING_TEXT}
+	      </td>
+	      
+	      <!-- BEGIN heuristic_block -->
+	      <td>{HEURISTIC_TEXT}</td>
+	      <!-- END heuristic_block -->
+
+	      <!-- BEGIN found_by_block -->
+	      <td>
+	      {FOUND_BY_TEXT}
+	      </td>
+	      <!-- END found_by_block -->
+
+	      <!-- BEGIN rating_block -->
+	      <td>
+		{RATING_TEXT}
+	      </td>
+	      <!-- END rating_block -->
+
+	      <!-- BEGIN average_rating_block -->
+	      <td>
+		{AVERAGE_RATING_TEXT}
+	      </td>
+	      <!-- END average_rating_block -->
+
+	    </tr>
+	    <!-- END finding_row -->
+
+
+	  </table>
+	</div>
+	
+	<h2>6. {LABEL_INDIVIDUAL_LOGS}</h2>
+
+	
+	<!-- BEGIN individual_log -->
+	<div class="table">
+	  <table cellpadding="5" border="1">
+	    
+	    <caption>
+	      <span class="label">{LABEL_INDIVIDUAL_TABLE}:</span>
+	      {LABEL_LOG_FOR_EVALUATOR}&nbsp;{LABEL_EVALUATOR_NAME}
+	    </caption>
+	    
+	    <tr><th>{LABEL_INDIVIDUAL_FINDING_TEXT}</th></tr>
+	    <!-- BEGIN individual_finding_block -->
+	    <tr>
+	      <td>
+		{INDIVIDUAL_FINDING_TEXT}
+	      </td>
+	    </tr>
+	    <!-- END individual_finding_block -->
+	    
+	  </table>
+	</div>
+	<!-- END individual_log -->
+
+	<!-- END main_block -->
+	<br />

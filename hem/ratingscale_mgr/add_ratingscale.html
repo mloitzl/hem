@@ -1,0 +1,69 @@
+	<!-- BEGIN main_block -->
+	<h1>
+	    {ADD_RATINGSCALE_TITLE}
+	</h1>
+
+	<h2>{MESSAGES}</h2>
+	<form name="addRatingScale" action="{FORM_ACTION}" method="{FORM_METHOD}">
+	  <table>
+	    <tr>
+	      <th colspan="2">
+		{LABEL_RATINGSCALE_TITLE}:
+	      </th>
+	    </tr>
+	    <tr>
+	      <!-- BEGIN title_language_header_block -->
+	      <th>{LABEL_TITLE_LANGUAGE}</th>
+	      <!-- END title_language_header_block -->	      
+	    </tr>
+	    <tr>
+	      <!-- BEGIN title_language_block -->
+	      <td>
+		<input type="hidden" name="scale[translation][trans_id]" value="{RATINGSCALE_TITLE_ID}" />
+		<input type="text" name="scale[translation][{TITLE_LANGUAGE_CODE}]" value="{RATINGSCALE_TITLE}" />
+	      </td>
+	      <!-- END title_language_block -->
+	    </tr>
+	  </table>
+	  <table>
+	    <tr>
+	      <th colspan="3">
+		{LABEL_RATINGSCALE_VALUES}:
+	      </th>
+	    </tr>
+	    <tr>
+	      <th>{LABEL_VALUE}</th>
+	      <!-- BEGIN value_language_header_block -->
+	      <th>{LABEL_VALUE_LANGUAGE}</th>
+	      <!-- END value_language_header_block -->
+	    </tr>
+
+	    <!-- BEGIN value_block -->
+	    <tr>
+	      <td>
+		<input type="text" name="data[{SCALE_VALUE_ID}][scalevalue]" value="{RATINGSCALE_VALUE}" />
+	      </td>
+	      <!-- BEGIN value_language_block -->
+	      <td>
+		<input type="hidden" name="data[{SCALE_VALUE_ID}][translation][trans_id]" value="{VALUE_TRANSLATION_ID}" />
+		<input type="text" name="data[{SCALE_VALUE_ID}][translation][{VALUE_LANGUAGE_CODE}]" value="{RATINGSCALEVALUE_TITLE}" />
+	      </td>
+	      <!-- END value_language_block -->
+	      <td>
+		<input type="Submit" name="delete_value[{SCALE_VALUE_ID}]" value="{LABEL_DELETE}" />
+	      </td>
+	    </tr>
+	    <!-- END value_block -->
+	  </table>
+	  <hr />
+	  <input type="text" name="addFields" value="0" size="1" />
+	  <input type="Submit" name="AddFields" value="{LABEL_ADD_VALUE_FIELDS}" />
+	  <hr />
+	  <input type="hidden" name="scale[scale_id]" value="{RATINGSCALE_ID}" />
+	  <input type="hidden" name="form_id" value="addRatingScale" />
+	  <input type="hidden" name="url" value="{RETURN_URL}" />
+	  <input type="Submit" name="Submit" value="{LABEL_SUBMIT_BUTTON}" />
+	  <input type="Reset" name="Reset" value="{LABEL_CANCEL_BUTTON}" />
+	</form>
+	<!-- END main_block -->
+	<br/>

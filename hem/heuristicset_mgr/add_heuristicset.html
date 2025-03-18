@@ -1,0 +1,94 @@
+      <!-- BEGIN main_block -->
+      <h1>
+	{ADD_HEURISTICSET_TITLE}
+      </h1>
+      
+      <h2>{MESSAGES}</h2>
+      <form name="addHeuristicSet" action="{FORM_ACTION}" method="{FORM_METHOD}">
+	<table>
+	  <tr>
+	    <th colspan="2">
+	      {LABEL_HEURISTICSET_TITLE}:
+	    </th>
+	  </tr>
+	  <tr>
+	    <!-- BEGIN title_language_header_block -->
+	    <th>{LABEL_TITLE_LANGUAGE}</th>
+	    <!-- END title_language_header_block -->	      
+	  </tr>
+	  <tr>
+	    <!-- BEGIN title_language_block -->
+	    <td>
+	      <input type="hidden" name="data[title_translation][trans_id]" value="{HEURISTICSET_TITLE_ID}" />
+	      <input type="text" name="data[title_translation][{TITLE_LANGUAGE_CODE}]" value="{HEURISTICSET_TITLE}" size="40" />
+	    </td>
+	    <!-- END title_language_block -->
+	  </tr>
+	  <tr>
+	    <!-- BEGIN description_language_block -->
+	    <td>
+	      <input type="hidden" name="data[description_translation][trans_id]" value="{HEURISTICSET_DESCRIPTION_ID}" />
+	      <textarea name="data[description_translation][{TITLE_LANGUAGE_CODE}]" cols="38" rows="5">{HEURISTICSET_DESCRIPTION}</textarea>
+	    </td>
+	    <!-- END description_language_block -->
+	  </tr>
+	</table>
+	<table>
+	  <tr>
+	    <th colspan="3">
+	      {LABEL_HEURISTICSET_VALUES}:
+	  </th>
+	  <tr>
+
+	  <tr>
+	    <th>{LABEL_ORDER}</th>
+	    <!-- BEGIN value_language_header_block -->
+	    <th>{LABEL_VALUE_LANGUAGE}</th>
+	    <!-- END value_language_header_block -->
+	  </tr>
+	  
+	  <!-- BEGIN value_title_block -->
+	  <tr>
+	    <td>
+	      <input type="text" name="data[heuristics][{HEURISTIC_ID}][hOrder]" value="{HEURISTIC_ORDER}" size="3" />
+	      <input type="hidden" name="data[heuristics][{HEURISTIC_ID}][hSetId]" value="{HEURISTIC_SET}" />
+	      <input type="hidden" name="data[heuristics][{HEURISTIC_ID}][hId]" value="{HEURISTIC_ID}" />
+	    </td>
+	    <!-- BEGIN value_title_language_block -->
+	    <td>
+	      <input type="hidden" name="data[heuristics][{HEURISTIC_ID}][title_translation][trans_id]" value="{VALUE_TRANSLATION_ID}" />
+	      <input type="text" name="data[heuristics][{HEURISTIC_ID}][title_translation][{VALUE_LANGUAGE_CODE}]" value="{HEURISTIC_TITLE}" size="40" />
+	    </td>
+	    <!-- END value_title_language_block -->
+	    <td>
+	      <input type="Submit" name="delete_value[{HEURISTIC_ID}]" value="{LABEL_DELETE}" />
+	    </td>
+	  </tr>
+	  
+	  <tr>
+	    <td>
+	    </td>
+	    <!-- BEGIN value_description_language_block -->
+	    <td>
+	      <input type="hidden" name="data[heuristics][{HEURISTIC_ID}][description_translation][trans_id]" value="{DESCRIPTION_TRANSLATION_ID}" />
+	      <textarea name="data[heuristics][{HEURISTIC_ID}][description_translation][{VALUE_LANGUAGE_CODE}]" cols="38" rows="4">{HEURISTIC_DESCRIPTION}</textarea>
+	    </td>
+	    <!-- END value_description_language_block -->
+	    <td>
+	    </td>
+	  </tr>
+	  <!-- END value_title_block -->
+	  
+	</table>
+	<hr />
+	<input type="text" name="addFields" value="0" size="1" />
+	<input type="Submit" name="AddFields" value="{LABEL_ADD_HEURISTIC_FIELDS}" />
+	<hr />
+	<input type="hidden" name="data[hSetId]" value="{HEURISTICSET_ID}" />
+	<input type="hidden" name="form_id" value="addHeuristicSet" />
+	<input type="hidden" name="url" value="{RETURN_URL}" />
+	<input type="Submit" name="Submit" value="{LABEL_SUBMIT_BUTTON}" />
+	<input type="Reset" name="Reset" value="{LABEL_CANCEL_BUTTON}" />
+      </form>
+      <!-- END main_block -->
+      <br />

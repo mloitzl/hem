@@ -1,0 +1,288 @@
+/* HEM Layout CSS
+   by Patrick Romano 2005 
+*/
+
+html body {
+  margin:0;
+  padding:0;
+  background:#F6F6F6;  
+  text-align:center;
+  font:small "Trebuchet MS",Verdana,Arial,Sans-serif;
+  color:#333;
+  }
+
+
+/* Page Structure
+----------------------------------------------- */
+
+#body {
+  width:100%;
+  padding-top: 5px;
+  margin: auto;
+  text-align:left;
+  }
+#main {
+  background:#fff;
+  float:left;
+  width:96%;
+  }
+#m2 {
+  padding-top:5px;
+  padding-bottom:5px;
+  padding-left:0px;
+  padding-right:0px;
+  float:left;
+  width:100%;
+  }
+#m3 {
+  border:5px solid #6699CC;				
+  padding: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  float:left;
+  width:100%;
+  }
+
+
+
+/* Links
+----------------------------------------------- */
+a {
+  font-weight:bold;
+  color:#002255;
+  }
+a:hover {
+  color:#FF6600;
+  }
+a img {
+  border-width:0;
+  }
+
+
+
+
+
+/* header
+----------------------------------------------- */
+
+/*
+	Header Layout
+*/
+
+div.header span.logo {
+  float: left;
+  text-align: left;
+  font-weight: bold;
+  width: 49%;
+  }
+
+div.header span.user-info {
+  float: right;
+  text-align: right;
+  font-weight: bold;
+  width: 49%;
+  padding-top:5px;
+  color:white;
+  }
+
+
+#header {
+  float: left;
+  width:100%;
+  padding:0px 0 0px;
+  margin: auto;
+  text-align:left;
+  }
+
+// #header #logo {
+  float:center;
+  margin:0;
+  padding:0;
+  }
+  
+// #logo img {
+  display:block;
+  width:15%;
+  }
+
+/* header - user info */
+// #header #user_info {
+  float:right;
+  text-align: right;	
+  padding-right: 10px;
+  padding-top: 7px;
+}
+
+
+/* header - sign in
+----------------------------------------------- */
+#header p {
+  float:left;
+  width:95%;
+  margin:.3em 0 0;
+  color:#369;
+  }
+#header label {
+  color:#69c;
+  }
+
+
+
+/* menu
+----------------------------------------------- */
+#menu {
+  width:100%;
+  clear:both;
+  float: left;
+  }
+  
+#menu div {
+  background:#6699CC;
+  width:100%;
+  margin: auto;
+  text-align:center;
+  }
+
+// #menu ul {
+  border: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+// #menu ul li {
+  float:left;
+  width: auto;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+// #menu ul li a {
+  background:#6699CC;
+  height: 1.5em;
+  padding-left: 2px;
+  padding-right: 0.1in;
+  padding-top: 5px;
+  color:#002255;
+  text-decoration: none;
+  text-align: center;
+  display: block; 
+  min-height:2px;
+  width: 100%;
+  color:#002255;
+  text-align:center;
+  font-size:93%;
+  line-height:1.2em;
+  background:#6699CC;
+  border-right: 1px solid #002255;
+  border-left: 1px solid #002255;
+  border-top: 1px solid #002255;
+  border-bottom: 1px solid #002255;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#menu ul li a:hover {
+  color: #FF6600;
+}
+
+
+
+/* Titles
+----------------------------------------------- */
+h1 {
+  margin:0 0 15px;
+  font-size:210%;
+  line-height:1.2em;
+  font-weight:normal;
+  color:#666;
+  }
+
+h2 {
+  margin:1em 0 .5em;
+  font-size:130%;
+  line-height:1.3em;
+  color:#826C55;
+  font-weight:normal;
+  }
+
+#main h2 strong {
+  color:#f60;
+  }
+  
+h3 {
+  margin:1em 0 .25em;
+  padding:.25em 0;
+  font-size:93%;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:#BAA68E;
+  }
+
+
+
+
+/* Tables
+----------------------------------------------- */
+table {
+  background:#ffffff;
+  border-width:0;
+  font-size:100%;
+  color:#333;
+//  width:100%
+  }
+
+td {
+  font-size:93%;
+  line-height:1.5em;
+  }
+th {
+  background:#fff;
+  padding-left:5px;
+  font-size:100%;
+  color:#664E38;
+  text-align:left;
+  }
+
+tr {
+  background:#EAF2FF;
+  padding-left:5px;
+  font-size:100%;
+  text-align:left;
+  }
+
+
+
+/*Table structures
+------------------------------------------------*/
+#users_table{
+  width: 40%;
+}
+
+#login_table {
+  width: 25%;
+}
+
+
+
+/*Footer
+----------------------------------------------- */
+#footer {
+color: #666;
+background: #ccc;
+clear: both;
+font-size: x-small;
+padding-top:10px; 
+padding-bottom:10px;
+}
+
+#footer p{
+text-align: center;
+}
+
+#footer a{
+class: light;
+padding-right:0px;
+}
+  

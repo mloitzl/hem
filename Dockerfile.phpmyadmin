@@ -1,0 +1,8 @@
+FROM mloitzl/php:4.4.9
+
+ADD phpMyAdmin-2.11.11.3-all-languages.tar.bz2 /usr/local/apache2/htdocs
+RUN mv /usr/local/apache2/htdocs/phpMyAdmin-2.11.11.3-all-languages /usr/local/apache2/htdocs/phpMyAdmin/ \
+    && mkdir /usr/local/apache2/htdocs/phpMyAdmin/config/
+ADD init/config.inc.php /usr/local/apache2/htdocs/phpMyAdmin/
+
+EXPOSE 80

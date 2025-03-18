@@ -1,0 +1,56 @@
+	<!-- BEGIN main_block -->
+	<h2><strong>
+	    {REGISTER_USER_TITLE}
+	</strong></h2>
+	<script type="text/javascript" language="Javascript">
+	  <!--
+	    //  window.onload = function() {document.changeUserForm.fields[2].focus();}
+	    function openWindow(url)
+	    {
+	    myWindow = window.open(url, "newWindow", 'width=310,height=422, toolbar=1') ;
+	    
+//	    myWindow.location.reload();
+	    }
+	    -->
+	</script>
+	<h2><center>{MESSAGES}</center></h2><br/>
+	<form name="registerUserForm" action="{SELF_PATH}" method="post">
+	 <div id="table">
+<div id="t1"><b>{LABEL_FIRSTNAME}</div><div id="t2"><input type="text" name="data[first_name]" value="{FIRST_NAME}" /></div><br/><br/>
+<div id="t1">{LABEL_LASTNAME}</div><div id="t2"><input type="text" name="data[last_name]" value="{LAST_NAME}" /></div><br/><br/>
+	  <!-- BEGIN user_name_block -->
+<div id="t1">{LABEL_USERNAME}</div><div id="t2"><input type="text" name="data[user_name]" value="{USERNAME}" /></div><br/><br/>
+	  <!-- END user_name_block -->
+<div id="t1">{LABEL_EMAIL}</div><div id="t2"><input type="text" name="data[email]" value="{EMAIL}" /></div><br/><br/>
+<div id="t1">{LABEL_STREET}</div><div id="t2"><input type="text" name="data[street]" value="{STREET}" /></div><br/><br/>
+<div id="t1">{LABEL_NO}</div><div id="t2"><input type="text" name="data[no]" value="{NO}" /></div><br/><br/>
+<div id="t1">{LABEL_CITY}</div><div id="t2"><input type="text" name="data[city]" value="{CITY}" /></div><br/><br/>
+<div id="t1">{LABEL_ZIP}</div><div id="t2"><input type="text" name="data[zip]" value="{ZIP}" /></div><br/><br/>
+<div id="t1">{LABEL_COUNTRY}</div><div id="t2"><input type="text" name="data[country]" value="{COUNTRY}" /></div><br/><br/>
+<div id="t1">{LABEL_PHONE}</div><div id="t2"><input type="text" name="data[phone]" value="{PHONE}" /></div><br/><br/>
+<div id="t1">{LABEL_NEW_PASSWORD}</div><div id="t2"><input type="password" name="data[new_password]" /></div><br /><br/>
+<div id="t1">{LABEL_RETYPE_PASSWORD}</div><div id="t2"><input type="password" name="data[retype_password]" /></div><br /><br/>
+
+
+	  <!-- BEGIN language_drop_down_block -->
+<div id="t1">{LABEL_LANGUAGE}</div></b>
+<div id="t2"><select name='{SELECT_NAME_LANGUAGE}'>
+	    <!-- BEGIN language_drop_down_option_block -->
+	       <option value='{OPTION_VALUE_LANGUAGE}'>{OPTION_TEXT_LANGUAGE}</option>
+	    <!-- END language_drop_down_option_block -->
+	    <!-- BEGIN language_selected_drop_down_option_block -->
+	       <!-- XHTML strict selected! http://web.sequenz.ch/i316/option-tag_in_xhtml-strict.html -->
+	       <option selected="selected" value='{OPTION_VALUE_LANGUAGE}'>{OPTION_TEXT_LANGUAGE}</option>
+	    <!-- END language_selected_drop_down_option_block -->
+	  </select></div><br /><br/>
+	  <!-- END language_drop_down_block -->
+
+
+	  <input type="submit" name="Submit" value="{SUBMIT_BUTTON}" />
+	  <input type="reset" value="{CANCEL_BUTTON}" /><br/>
+	  <input type="hidden" value="{USER_ID}" name="data[auth_user_id]" />
+	  <input type="hidden" value="{REDIRECT_URL}" name="url" />
+	  <input type="hidden" value="1" name="step" />
+
+	</form>
+	<!-- END main_block -->
