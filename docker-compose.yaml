@@ -35,8 +35,6 @@ services:
     restart: always
     ports:
       - "9080:80"
-    # volumes:
-    #   - ./src:/usr/local/apache2/htdocs
     entrypoint: /bin/sh -c "apachectl start; while true; do sleep 1s; echo '.'; done"
     environment:
       - MYSQL_HOST=mysql
@@ -69,7 +67,7 @@ services:
       db:
 
   phpmyadmin:
-    # image: mloitzl/php:4.4.9    
+    # image: mloitzl/php:4.4.9
     image: mloitzl/phpmyadmin:2.11.11.3
     build:
       context: .
@@ -85,6 +83,4 @@ services:
         condition: service_healthy
     networks:
       db:
-    volumes:
-      - ./phpMyAdmin-2.11.11.3-all-languages:/usr/local/apache2/htdocs/phpMyAdmin
 

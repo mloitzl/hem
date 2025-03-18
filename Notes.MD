@@ -14,8 +14,8 @@ GRANT ALL PRIVILEGES ON `hem`.* TO ``@`%`;
 
 ```sql
 -- Create user without password
-GRANT ALL PRIVILEGES ON *.* TO 'testuser2'@'%' WITH GRANT OPTION;
-
+GRANT ALL PRIVILEGES ON *.* TO 'pmauser'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
 select Host, User, Password,Grant_priv from user;
 ````
 
