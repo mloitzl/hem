@@ -41,7 +41,7 @@ services:
     restart: always
     ports:
       - "9080:80"
-    entrypoint: /bin/sh -c "apachectl start; while true; do sleep 1s; echo '.'; done"
+    entrypoint: /bin/sh -c "apachectl start; while true; do sleep 1s; done"
     environment:
       PMA_USER: pmauser
       MYSQL_HOST: mysql
@@ -74,7 +74,7 @@ services:
     restart: always
     ports:
       - "9081:80"
-    entrypoint: /bin/sh -c "apachectl start; while true; do sleep 1s; echo '.'; done"
+    entrypoint: /bin/sh -c "apachectl start; while true; do sleep 1s; done"
     environment:
       PMA_USER: pmauser
       PMA_HOST: mysql
