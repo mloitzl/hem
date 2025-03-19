@@ -32,9 +32,5 @@ else
     mysql -u "${MYSQL_INIT_USER}" -h ${MYSQL_HOST} -P 3306 -p${MYSQL_INIT_PASSWORD} </create_tables_mysql_4_1_2+.sql
 fi
 
-while true; do
-    sleep 1
-done
-
 echo "Initialization complete."
 exit 0

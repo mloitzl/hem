@@ -1,0 +1,5 @@
+FROM mloitzl/mysql:4.1.22
+
+ADD ./init/init-db.sh /init-db.sh
+ADD ./init/hem_backup.sql /hem_backup.sql
+ADD ./init/create_tables_mysql_4_1_2+.sql /create_tables_mysql_4_1_2+.sql

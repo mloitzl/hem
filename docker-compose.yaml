@@ -1,5 +1,7 @@
 version: "3"
 
+name: hem
+
 volumes:
   mariadb:
     driver: local
@@ -15,7 +17,10 @@ networks:
 services:
 
   init:
-    image: mloitzl/mysql:4.1.22
+    image: mloitzl/heminit:0.4.1
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.heminit
     networks:
       db:
     depends_on:
@@ -27,16 +32,12 @@ services:
       MYSQL_HOST: mysql
       HEM_DB_NAME: hem
     entrypoint: ["/bin/sh", "/init-db.sh"]
-    volumes:
-      - ./init/init-db.sh:/init-db.sh
-      - ./init/hem_backup.sql:/hem_backup.sql
-      - ./init/create_tables_mysql_4_1_2+.sql:/create_tables_mysql_4_1_2+.sql
 
   hem:
     image: mloitzl/hem:0.4.1
-    build:
-      context: .
-      dockerfile: Dockerfile.hem
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.hem
     restart: always
     ports:
       - "9080:80"
@@ -67,9 +68,9 @@ services:
 
   phpmyadmin:
     image: mloitzl/phpmyadmin:2.11.11.3
-    build:
-      context: .
-      dockerfile: Dockerfile.phpmyadmin
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.phpmyadmin
     restart: always
     ports:
       - "9081:80"
