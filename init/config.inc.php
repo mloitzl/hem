@@ -28,13 +28,14 @@ $i++;
 /* Authentication type */
 $cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
-$cfg['Servers'][$i]['host'] = 'mysql';
+$cfg['Servers'][$i]['host'] = getenv('PMA_HOST');
 $cfg['Servers'][$i]['connect_type'] = 'tcp';
 $cfg['Servers'][$i]['compress'] = false;
 /* Select mysqli if your server has it */
 $cfg['Servers'][$i]['extension'] = 'mysql';
 /* User for advanced features */
-$cfg['Servers'][$i]['user'] = 'pmauser';
+$cfg['Servers'][$i]['user'] = getenv('PMA_USER');
+;
 $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
 
 /* Advanced phpMyAdmin features */

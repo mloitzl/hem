@@ -1,4 +1,4 @@
-FROM mloitzl/php:4.4.9 as phpmyadmin
+FROM mloitzl/php:4.4.9
 
 ADD hem.0.4.1.tar.bz2 /usr/local/apache2/htdocs
 
