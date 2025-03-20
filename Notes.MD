@@ -1,3 +1,13 @@
+# Build
+
+```sh
+$ docker buildx build --platform linux/amd64,linux/arm64 -f Dockerfile.heminit -t mloitzl/heminit:0.4.1 . --push
+$ docker buildx build --platform linux/amd64,linux/arm64 -f Dockerfile.phpmyadmin -t mloitzl/phpmyadmin:2.11.11.3 . --push
+$ docker buildx build --platform linux/amd64,linux/arm64 -f Dockerfile.hem -t mloitzl/hem:0.4.1 . --push
+
+# --progress=plain --no-cache
+```
+
 # SQL User no Password
 
 ```sql
@@ -77,13 +87,10 @@ docker run --rm -v hem_mysql:/data -v $(pwd):/backup alpine tar -xzf /backup/hem
 docker run --rm -v hem_mysql:/data alpine ls -l /data
 ```
 
-
 # Backup/Restore SQL
 
 - Volume: backup: /backup/mysql/
-
 - Backup
-
 
 ```sh
 docker exec -it hem-mysql-1 /bin/bash
@@ -100,4 +107,10 @@ GRANT ALL PRIVILEGES ON `hem`.* TO ``@`%`;
 
 ```sh
 mysql hem < /backup/mysql/hem.sql
+```
+
+# Up and down
+
+```sh
+ docker compose up && docker compose down -v
 ```
