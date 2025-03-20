@@ -49,7 +49,7 @@ Point your Browser to:
 
 # Infrastructure
 
-## ARM64
+## linux/amd64 linux/arm64
 
 - mysql 4.1.22: [Dockerfile](https://github.com/mloitzl/php4-mysql4-apache2.2-docker/blob/master/Dockerfile.alpine.mysql.arm64)
 - php 4.4.9 and apache 2.2.34: [Dockerfile](https://github.com/mloitzl/php4-mysql4-apache2.2-docker/blob/master/Dockerfile.alpine.arm64)
