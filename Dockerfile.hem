@@ -3,5 +3,6 @@ FROM mloitzl/php:4.4.9
 ADD hem.0.4.1.tar.bz2 /usr/local/apache2/htdocs
 ADD init/index_hem.php /usr/local/apache2/htdocs/index.php
 RUN rm /usr/local/apache2/htdocs/index.html
+RUN chmod -R 777 /usr/local/apache2/htdocs/hem/reports
 
 EXPOSE 80
