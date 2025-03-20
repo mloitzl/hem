@@ -5,4 +5,8 @@ RUN mv /usr/local/apache2/htdocs/phpMyAdmin-2.11.11.3-all-languages /usr/local/a
     && mkdir /usr/local/apache2/htdocs/phpMyAdmin/config/
 ADD init/config.inc.php /usr/local/apache2/htdocs/phpMyAdmin/
 
+ADD init/index_phpmyadmin.php /usr/local/apache2/htdocs/index.php
+RUN rm /usr/local/apache2/htdocs/index.html
+
+
 EXPOSE 80
