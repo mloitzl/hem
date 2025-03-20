@@ -35,7 +35,7 @@ $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['extension'] = 'mysql';
 /* User for advanced features */
 $cfg['Servers'][$i]['user'] = getenv('PMA_USER');
-;
+
 $cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
 
 /* Advanced phpMyAdmin features */
